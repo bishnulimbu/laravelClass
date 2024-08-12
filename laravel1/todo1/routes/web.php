@@ -28,4 +28,9 @@ Route::get('/product', function () {
 Route::get('/product/list', [\App\Http\Controllers\ProductController::class, 'index']);
 Route::get('/product/form', [\App\Http\Controllers\ProductController::class, 'formIndex']);
 
-?>
+Route::get('/', function () {
+    return view('backend.main');
+});
+Route::get('/backend', function () {
+    return view('backend.includes.footer');
+});
