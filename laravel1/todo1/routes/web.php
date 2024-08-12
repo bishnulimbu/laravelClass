@@ -13,24 +13,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/* Route::get('/', function () { */
+/*     return view('backend.main'); */
+/* }); */
+/**/
+/* Route::get('/backend', function () { */
+/*     return view('backend.includes.footer'); */
+/* }); */
+/**/
+/* Route::get('/', function () { */
+/*     return view('welcome'); */
+/* }); */
+/**/
+/* Route::get('/contact', function () { */
+/*     return view('welcome_contact'); // Change 'welcome_contact' to your actual view file name */
+/* }); */
+/**/
+/* Route::get('/product', function () { */
+/*     return view('product.product'); */
+/* }); */
+/**/
+/* Route::get('/product/list', [\App\Http\Controllers\ProductController::class, 'index']); */
+/* Route::get('/product/form', [\App\Http\Controllers\ProductController::class, 'formIndex']); */
+/**/
 
-Route::get('/contact', function () {
-    return view('welcome_contact'); // Change 'welcome_contact' to your actual view file name
-});
+Route::get('category/create', [\App\Http\Controllers\CategoryController::class, 'create']);
 
-Route::get('/product', function () {
-    return view('product.product');
-});
-
-Route::get('/product/list', [\App\Http\Controllers\ProductController::class, 'index']);
-Route::get('/product/form', [\App\Http\Controllers\ProductController::class, 'formIndex']);
-
-Route::get('/', function () {
-    return view('backend.main');
-});
-Route::get('/backend', function () {
-    return view('backend.includes.footer');
-});
+/* Route::get('/category/create', function () { */
+/*     return view('backend.category.create'); */
+/* }); */
