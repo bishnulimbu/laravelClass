@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -28,63 +29,45 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add Category</h3>
+                <h3 class="card-title">Edit Category</h3>
               </div>
-
-                @if ($errors->any())
-                    @foreach($errors->all() as $error)
-                        <!-- <div class="ml-3"><p style="color: red;">{{$error}}</p></div> -->
-                    @endforeach
-                @endif
-
-
-                @if(session()->has('message'))
-                    <div id="alert-message" class="alert alert-success">
-                        {{ session()->get('message') }}
-                    </div>
-                @endif
-
-
-
-
-              <form action="{{ route('category.store') }}" method="POST">
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form action="/category/update/{{$category->id}}" method="POST">
+                @csrf
                 <div class="card-body">
-                    @csrf
                   <div class="form-group">
                     <label for="categoryTitle">Title</label>
-                    <input type="text" class="form-control" name="title" id="categoryTitle" placeholder="Title">
+                    <input type="text" required class="form-control" name="title" value="{{$category->title}}" id="categoryTitle" placeholder="Title">
                     @error('title')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                   </div>
                   <div class="form-group">
                     <label for="categoryDescription">Description</label>
-                    <input type="text" class="form-control" name="description" id="categoryDescription" placeholder="Description">
+                    <input type="text" required class="form-control" name="description" value="{{$category->description}}" id="categoryDescription" placeholder="Description">
                     @error('description')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                   </div>
 
                 </div>
+                <!-- /.card-body -->
+
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             </div>
+            <!-- /.card -->
 
           </div>
+          <!--/.col (right) -->
         </div>
-      </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
+    <!-- /.content -->
   </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-            const alert = document.getElementById('alert-message');
-            if (alert) {
-                alert.style.display = 'none';
-            }
-        }, 3000); // 3000 milliseconds = 3 seconds
-    });
-</script>
+
 @endsection
