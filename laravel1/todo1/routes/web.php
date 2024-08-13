@@ -37,8 +37,31 @@ use Illuminate\Support\Facades\Route;
 /* Route::get('/product/form', [\App\Http\Controllers\ProductController::class, 'formIndex']); */
 /**/
 
-Route::get('category/create', [\App\Http\Controllers\CategoryController::class, 'create']);
+// Route::get('/category', function () {
+//     return view('backend.category.index');
+// });
+
+// Route::post('/category/store', [\App\Http\Controllers\CategoryController::class, 'store']);
+// Route::post('/category/index', [\App\Http\Controllers\CategoryController::class, 'show']);
+
+
+Route::get('/category/create', [\App\Http\Controllers\CategoryController::class, 'create']);
+Route::get('/category', [\App\Http\Controllers\CategoryController::class, 'index']);
+Route::post('/category/create', [\App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
+Route::get('/category/edit/{id}', [\App\Http\Controllers\CategoryController::class, 'edit']);
+Route::post('/category/update/{id}', [\App\Http\Controllers\CategoryController::class, 'update']);
+Route::get('/category/delete/{id}', [\App\Http\Controllers\CategoryController::class, 'destroy']);
 
 /* Route::get('/category/create', function () { */
 /*     return view('backend.category.create'); */
 /* }); */
+
+Route::get('/brand/create', [\App\Http\Controllers\BrandController::class, 'create']);
+Route::get('/brand', [\App\Http\Controllers\BrandController::class, 'index']);
+Route::post('/brand/create', [\App\Http\Controllers\BrandController::class, 'store'])->name('brand.store');
+Route::get('/brand/edit/{id}', [\App\Http\Controllers\BrandController::class, 'edit']);
+Route::post('/brand/update/{id}', [\App\Http\Controllers\BrandController::class, 'update']);
+Route::get('/brand/delete/{id}', [\App\Http\Controllers\BrandController::class, 'destroy']);
+
+// Route::post('/brand/create', [\App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
+// Route::post('/brand/edit/{id}', [\App\Http\Controllers\CategoryController::class, 'edit']);
