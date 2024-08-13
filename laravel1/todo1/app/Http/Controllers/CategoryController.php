@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Brand;
+use App\Models\Category;
 
-class BrandController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $brand = Brand::all();
-        return view('backend.brand.index', compact('brand'));
+        $category = Category::all();
+        return view('backend.category.index', compact('category'));
     }
 
     /**
@@ -21,8 +21,8 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
-        return view('backend.brand.create');
+        /* return 'hello'; */
+        return view('backend.category.create');
     }
 
     /**
@@ -35,10 +35,10 @@ class BrandController extends Controller
             "description" => "required"
         ]);
 
-        $brand = new Brand();
-        $brand->title = $request->title;
-        $brand->description = $request->description;
-        $brand->save();
+        $category = new Category();
+        $category->title = $request->title;
+        $category->description = $request->description;
+        $category->save();
 
         return redirect()->back()->with('message', 'Data saved');
     }
@@ -56,11 +56,10 @@ class BrandController extends Controller
      */
     public function edit(string $id)
     {
-        $brand = Brand::find($id);
+        $category = Category::find($id);
 
-        return view('backend.brand.edit', compact('brand'));
+        return view('backend.category.edit', compact('category'));
     }
-
     /**
      * Update the specified resource in storage.
      */
@@ -72,10 +71,10 @@ class BrandController extends Controller
         ]);
 
 
-        $brand =  Brand::find($id);
-        $brand->title = $request->title;
-        $brand->description = $request->description;
-        $brand->save();
+        $category =  Category::find($id);
+        $category->title = $request->title;
+        $category->description = $request->description;
+        $category->save();
 
         return redirect()->back()->with('message', 'Data saved');
     }
@@ -85,8 +84,8 @@ class BrandController extends Controller
      */
     public function destroy(string $id)
     {
-        $brand = Brand::find($id);
-        $brand->delete();
+        $category = Category::find($id);
+        $category->delete();
 
         return redirect()->back()->with('message', 'Data removed successfully.');
     }
