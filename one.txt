@@ -1,0 +1,14 @@
+first     make model command 
+ bishnulimbu   main -  php artisan make:model Product -m
+
+ then run command
+ bishnulimbu   main -  php artisan migrate              
+ this will create table in database
+
+ if migration not running then you can do this.
+ ✘  bishnulimbu   main -  php artisan migrate                  
+
+   INFO  Running migrations.  
+
+  2024_08_13_141346_create_products_table ................................................................................................ 15ms DONE
+then run php artisan migrate
