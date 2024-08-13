@@ -2,17 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 /* Route::get('/', function () { */
 /*     return view('backend.main'); */
 /* }); */
@@ -65,3 +54,10 @@ Route::get('/brand/delete/{id}', [\App\Http\Controllers\BrandController::class, 
 
 // Route::post('/brand/create', [\App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
 // Route::post('/brand/edit/{id}', [\App\Http\Controllers\CategoryController::class, 'edit']);
+
+Route::get('/product/create', [\App\Http\Controllers\ProductController::class, 'create']);
+Route::get('/product', [\App\Http\Controllers\ProductController::class, 'index']);
+Route::post('/product/create', [\App\Http\Controllers\ProductController::class, 'store'])->name('product.store');
+Route::get('/product/edit/{id}', [\App\Http\Controllers\ProductController::class, 'edit']);
+Route::put('/product/update/{id}', [\App\Http\Controllers\ProductController::class, 'update'])->name('product.update');
+Route::get('/product/delete/{id}', [\App\Http\Controllers\ProductController::class, 'destroy']);
