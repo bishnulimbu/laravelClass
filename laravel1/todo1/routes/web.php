@@ -33,7 +33,6 @@ use Illuminate\Support\Facades\Route;
 // Route::post('/category/store', [\App\Http\Controllers\CategoryController::class, 'store']);
 // Route::post('/category/index', [\App\Http\Controllers\CategoryController::class, 'show']);
 
-
 Route::get('/category/create', [\App\Http\Controllers\CategoryController::class, 'create']);
 Route::get('/category', [\App\Http\Controllers\CategoryController::class, 'index']);
 Route::post('/category/create', [\App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
@@ -61,3 +60,8 @@ Route::post('/product/create', [\App\Http\Controllers\ProductController::class, 
 Route::get('/product/edit/{id}', [\App\Http\Controllers\ProductController::class, 'edit']);
 Route::put('/product/update/{id}', [\App\Http\Controllers\ProductController::class, 'update'])->name('product.update');
 Route::get('/product/delete/{id}', [\App\Http\Controllers\ProductController::class, 'destroy']);
+
+// Route::get('/', function () {
+//     return view('frontend.index');
+// });
+Route::get('/', [\App\Http\Controllers\FrontendController::class, 'index']);
