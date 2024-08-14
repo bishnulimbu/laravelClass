@@ -82,8 +82,12 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id); // Find the product by ID or fail
+        $brands = Brand::all();
+        $categories = Category::all();
+        // $prands and $categories created as varaible for the dynamic data reading in the form blade file
 
-        return view('backend.product.edit', compact('product')); // Return the edit form view with the product data
+        return view('backend.product.edit', compact('product', 'brands', 'categories')); // Return the form view for creating a new product
+
     }
 
     /**
@@ -115,10 +119,13 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             // Delete the old image if it exists
             if ($product->image) {
-                \Storage::delete('public/'.$product->image);
+                \Storage::delete('public/products/'.$product->image);
             }
+
             // Store the new image
-            $imagePath = $request->file('image')->store('products', 'public');
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->storeAs('products', $imageName, 'public');
+            $imagePath = $imageName;
         }
 
         // Update the product details
@@ -162,6 +169,5 @@ class ProductController extends Controller
 
         // Redirect back with a success message
         return redirect()->route('product.index')->with('message', 'Product deleted successfully.');
-        // return redirect()->route('product.index')->with('message', 'Product updated successfully.');
     }
 }
