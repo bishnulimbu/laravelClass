@@ -68,35 +68,36 @@
                                         <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" width="100" class="mt-2">
                                     @endif
                                     </div>
+
                                     <div class="form-group">
-                                        <label for="productBrand">Brand</label>
-                                        <select class="form-control" name="brand_id" id="productBrand">
-                                            <option value="">Select Brand</option>
-                                            @foreach(range(1, 10) as $id) <!-- Replace with actual range or array if needed -->
-                                                <option value="{{ $id }}" {{ $product->brand_id == $id ? 'selected' : '' }}>
-                Brand {{ $id }} <!-- Replace with actual brand names if available -->
-                                                </option>
-                                            @endforeach
+                                        <label for="brandCategory">Brand</label>
+                                        <select class="form-control" name="barnd_id">
+                                            <option diabled>Select your Brand</option>
+                                            @foreach($brands as $brand)
+                                            <option value="{{$brand->id}}">{{$brand->title}}</option>
+                                        @endforeach
                                         </select>
+                                        <!-- <input type="number" class="form-control" name="brand_id" id="productBrand" placeholder="Brand ID"> -->
                                         @error('brand_id')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                     </div>
-
                                     <div class="form-group">
                                         <label for="productCategory">Category</label>
-                                        <select class="form-control" name="category_id" id="productCategory">
-                                            <option value="">Select Category</option>
-                                            @foreach(range(1, 10) as $id) <!-- Replace with actual range or array if needed -->
-                                                <option value="{{ $id }}" {{ $product->category_id == $id ? 'selected' : '' }}>
-                Category {{ $id }} <!-- Replace with actual category names if available -->
-                                                </option>
-                                            @endforeach
+                                        <label>Select</label>
+                                        <select class="form-control" name="category_id">
+                                            <option diabled>Select your category</option>
+                                            @foreach($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->title}}</option>
+                                        @endforeach
                                         </select>
+                                        <!-- <label for="productCategory">Category</label> -->
+                                        <!-- <input type="number" class="form-control" name="category_id" id="productCategory" placeholder="Category ID"> -->
                                         @error('category_id')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                     </div>
+
                                     <div class="form-group">
                                         <label for="productStock">Stock</label>
                                         <input type="number" required class="form-control" name="stock" value="{{ old('stock', $product->stock) }}" id="productStock" placeholder="Stock">
