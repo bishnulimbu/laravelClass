@@ -3,82 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-        }
-        .form-container {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .form-group textarea {
-            resize: vertical;
-        }
-        .form-group button {
-            padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .form-group button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>AdminLTE Styled Form</title>
+    <!-- AdminLTE CSS -->
+<link rel="stylesheet" href="/home/bishnulimbu/Desktop/coding/laravelClass/laravel1/todo1/resources/css/adminlte.min.css">
+<link rel="stylesheet" href="/home/bishnulimbu/Documents/AdminLTE-3.2.0/plugins/fontawesome-free">
 </head>
-<body>
-    <div class="form-container">
-        <h1>Contact Us</h1>
-        <form action="/submit-form" method="post">
-            <!-- CSRF Token for Laravel -->
-            @csrf
+<body class="hold-transition login-page">
+<div class="login-box">
+    <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+            <a href="#" class="h1"><b>Admin</b>LTE</a>
+        </div>
+        <div class="card-body">
+            <p class="login-box-msg">Sign in to start your session</p>
 
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+            <form action="#" method="post">
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control" placeholder="Email">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" placeholder="Password">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="icheck-primary">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">
+                                Remember Me
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="social-auth-links text-center mt-2 mb-3">
+                <a href="#" class="btn btn-block btn-primary">
+                    <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+                </a>
+                <a href="#" class="btn btn-block btn-danger">
+                    <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+                </a>
             </div>
 
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
-
-            <div class="form-group">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
+            <p class="mb-1">
+                <a href="#">I forgot my password</a>
+            </p>
+            <p class="mb-0">
+                <a href="#" class="text-center">Register a new membership</a>
+            </p>
+        </div>
     </div>
+</div>
+
+<!-- AdminLTE JS -->
+<script src="https://adminlte.io/themes/v3/plugins/jquery/jquery.min.js"></script>
+<script src="https://adminlte.io/themes/v3/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://adminlte.io/themes/v3/dist/js/adminlte.min.js"></script>
 </body>
 </html>
