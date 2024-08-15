@@ -85,26 +85,26 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="brandCategory">Brand</label>
-                                        <select class="form-control" name="barnd_id">
-                                            <option diabled>Select your Brand</option>
+                                        <label for="productBrand">Brand</label>
+                                        <select class="form-control" name="brand_id" id="productBrand">
+                                            <option value="">Select a Brand</option>
                                             @foreach($brands as $brand)
-                                            <option value="{{$brand->id}}">{{$brand->title}}</option>
-                                        @endforeach
+                                                <option value="{{ $brand->id }}">{{ $brand->title }}</option>
+                                            @endforeach
                                         </select>
-                                        <!-- <input type="number" class="form-control" name="brand_id" id="productBrand" placeholder="Brand ID"> -->
                                         @error('brand_id')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                     </div>
+
                                     <div class="form-group">
                                         <label for="productCategory">Category</label>
                                         <label>Select</label>
                                         <select class="form-control" name="category_id">
                                             <option diabled>Select your category</option>
                                             @foreach($categories as $category)
-                                            <option value="{{$category->id}}">{{$category->title}}</option>
-                                        @endforeach
+                                                <option value="{{$category->id}}">{{$category->title}}</option>
+                                            @endforeach
                                         </select>
                                         <!-- <label for="productCategory">Category</label> -->
                                         <!-- <input type="number" class="form-control" name="category_id" id="productCategory" placeholder="Category ID"> -->
